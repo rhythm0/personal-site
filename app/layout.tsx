@@ -3,12 +3,10 @@
 // =====================================================
 
 import "../styles/globals.css";
+import { playfair, geist } from "./fonts";
 import Navbar from "../components/Navbar";
-import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
-import { Particles } from "@/components/ui/particles"
-
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+import { Particles } from "@/components/ui/particles";
 
 export const metadata = {
   title: "Siyuan Qi / rhythm0",
@@ -17,7 +15,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={cn("font-sans", geist.variable)}>
+    <html lang="en" className={cn("font-sans", geist.variable, playfair.variable)}>
       <body className="relative bg-black text-white antialiased">
         <Particles
           className="fixed inset-0 -z-10"
@@ -28,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           color="#ffffff"
           refresh
         />
-        {/* <Navbar /> */}
+        <Navbar />
         <main className="relative z-10">{children}</main>
       </body>
     </html>
