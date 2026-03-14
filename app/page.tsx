@@ -66,9 +66,9 @@ export default function Rhythm0SiteTemplate() {
           initial="hidden"
           whileInView="show"
           animate={false}
-          viewport={{ once: false, amount: 0.6}}
+          viewport={{ once: false, margin: '-120px'}}
           variants={scrollItem} 
-          className="min-h-[80vh] p-10 content-center grid gap-5 md:grid-cols-2 xl:grid-cols-3" 
+          className="py-32 p-10 content-center grid gap-5 md:grid-cols-2 xl:grid-cols-3" 
           aria-label="Site navigation"
         >
           {navItems.map((item) => (
@@ -82,7 +82,7 @@ export default function Rhythm0SiteTemplate() {
             initial="hidden"
             whileInView="show"
             animate={false}
-            viewport={{ once: false, amount: 0.6 }}
+            viewport={{ once: false, margin: '-120px' }}
             id="projects" 
             className="py-32 items-center justify-center scroll-mt-20"
         >
@@ -109,7 +109,7 @@ export default function Rhythm0SiteTemplate() {
           initial="hidden"
           whileInView="show"
           animate={false}
-          viewport={{ once: false, amount: 0.6 }}
+          viewport={{ once: false, margin: '-120px' }}
           id="experience" 
           className="py-32 scroll-mt-20"
         >
@@ -133,7 +133,7 @@ export default function Rhythm0SiteTemplate() {
           initial="hidden"
           whileInView="show"
           animate={false}
-          viewport={{ once: false, amount: 0.6 }}
+          viewport={{ once: false, margin: '-120px' }}
           id="painting" 
           className="py-32 scroll-mt-20"
         >
@@ -154,7 +154,7 @@ export default function Rhythm0SiteTemplate() {
           initial="hidden"
           whileInView="show"
           animate={false}
-          viewport={{ once: false, amount: 0.6 }}
+          viewport={{ once: false, margin: '-120px' }}
           id="calligraphy" 
           className="py-32 scroll-mt-20"
         >
@@ -175,7 +175,7 @@ export default function Rhythm0SiteTemplate() {
           initial="hidden"
           whileInView="show"
           animate={false}
-          viewport={{ once: false, amount: 0.6 }}
+          viewport={{ once: false, amount: 0.4 }}
           id="photography" 
           className="py-32 scroll-mt-20"
         >
@@ -184,7 +184,7 @@ export default function Rhythm0SiteTemplate() {
             title="Fragments of light, line, and stillness"
             description="A clean grid you can later replace with real images, hover states, or a lightbox experience."
           />
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-3">
             {photographyItems.map((item) => (
               <GalleryTile key={item.title} {...item} />
             ))}
@@ -198,8 +198,8 @@ export default function Rhythm0SiteTemplate() {
           initial="hidden"
           whileInView="show"
           animate={false}
-          viewport={{ once: false, amount: 0.6 }} 
-          className="py-32 scroll-mt-20"
+          viewport={{ once: false, margin: '-120px' }} 
+          className="pb-32 scroll-mt-20"
         >
           <div className="rounded-[2rem] border border-neutral-800 bg-neutral-950/60 p-8 md:p-10">
             <SectionHeading

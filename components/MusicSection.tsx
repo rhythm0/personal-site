@@ -44,7 +44,7 @@ export default function MusicSection() {
             animate={false}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: false, amount: 0.6 }}
+            viewport={{ once: false, margin:'-120px' }}
             id="music" 
             className="py-32 scroll-mt-20"
         >
@@ -102,13 +102,20 @@ export default function MusicSection() {
                       </p>
                     </div>
 
-                    <iframe
+                    {/* <iframe
                       className="w-full border-0 max-w-xl"
                       src={`https://music.163.com/outchain/player?type=2&id=${track.id}&auto=0&height=66`}
                       height="86"
                       loading="eager"
                       allow="autoplay; encrypted-media;"
-                    />
+                    /> */}
+                    <a
+                        href={`https://music.163.com/song?id=${track.id}`}
+                        target="_blank"
+                        className="text-sm underline italic text-[#F7E7CE]"
+                        >
+                        Listen on NetEase
+                    </a>
                   </div>
                 ))}
               </div>

@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { playfair } from "../app/fonts";
 
 const revealLeft = {
   hidden: {
@@ -13,7 +14,7 @@ const revealLeft = {
     clipPath: "inset(0 0% 0 0)",
     filter: "blur(0px)",
     transition: {
-      duration: 8,
+      duration: 6,
       ease: [0.22, 1, 0.36, 1] as const
     }
   }
@@ -30,7 +31,7 @@ const heroItem = {
     y: 0,
     filter: "blur(0px)",
     transition: {
-      duration: 10,
+      duration: 8,
       ease: [0.22, 1, 0.36, 1] as const
     }
   }
@@ -58,7 +59,11 @@ export default function HeroPage() {
               variants={revealLeft}
               className="max-w-4xl text-5xl font-semibold tracking-tight text-white md:text-7xl"
             >
-              Between code and ink, systems and rhythm.
+              Between{" "}
+              <span className={`${playfair.className} font-medium italic bg-linear-to-r from-yellow-400 via-fuchsia-400 to-purple-500 bg-clip-text text-transparent`}>code</span> and{" "}
+              <span className={`${playfair.className} font-medium italic bg-linear-to-r from-yellow-400 via-fuchsia-400 to-purple-500 bg-clip-text text-transparent`}>ink</span>,{" "}
+              <span className={`${playfair.className} font-medium italic bg-linear-to-r from-purple-500 via-fuchsia-400 to-yellow-400 bg-clip-text text-transparent`}>systems</span> and{" "}
+              <span className={`${playfair.className} font-medium italic bg-linear-to-r from-purple-500 via-fuchsia-400 to-yellow-400 bg-clip-text text-transparent`}>rhythm</span>.
             </motion.h1>
 
             <motion.p
