@@ -1,4 +1,23 @@
+"use client";
 import SectionHeading from "./SectionHeading";
+import { motion } from "framer-motion";
+
+const scrollItem = {
+  hidden: {
+    opacity: 0,
+    y: 60,
+    filter: "blur(6px)"
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.9,
+      ease: [0.22, 1, 0.36, 1] as const
+    }
+  }
+};
 
 const tracks = [
   {
@@ -20,7 +39,15 @@ const tracks = [
 export default function MusicSection() {
     return (
         
-        <section id="music" className="mb-20 scroll-mt-20">
+        <motion.section
+            variants={scrollItem}
+            animate={false}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.6 }}
+            id="music" 
+            className="py-32 scroll-mt-20"
+        >
           <SectionHeading
             eyebrow="rhythm0"
             title="Music as structure, texture, and emotion"
@@ -79,8 +106,8 @@ export default function MusicSection() {
                       className="w-full border-0 max-w-xl"
                       src={`https://music.163.com/outchain/player?type=2&id=${track.id}&auto=0&height=66`}
                       height="86"
-                      loading="lazy"
-                      allow="autoplay"
+                      loading="eager"
+                      allow="autoplay; encrypted-media;"
                     />
                   </div>
                 ))}
@@ -88,6 +115,6 @@ export default function MusicSection() {
 
             </div>
           </div>
-        </section>
+        </motion.section>
     );
 }
