@@ -2,6 +2,7 @@
   "name": "rhythm0-site",
   "version": "0.1.0",
   "private": true,
+  "dev": "WATCHPACK_POLLING=true next dev --no-turbo",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

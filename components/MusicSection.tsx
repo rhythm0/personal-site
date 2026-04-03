@@ -26,6 +26,7 @@ const tracks = [
     subtitle: "pop / r&b",
     note:
       "A pop-R&B inspired piece about solitude in autumn. Headphones on, techno quietly flowing through the night — a dance of hidden desires and quiet ecstasy.",
+    cover:'http://p2.music.126.net/EnKTsd9M6vBtKdqVOrD9uw==/109951170099892039.jpg',
   },
   {
     id: 2701573091,
@@ -33,6 +34,7 @@ const tracks = [
     subtitle: "acid techno / minimal / ambient",
     note:
       "Inspired while working on large-scale data processing with Apache Spark. The piece captures the moment of sudden insight — a spark of clarity emerging from structured chaos.",
+    cover:'http://p1.music.126.net/gHzD7Fhw68pSDmSPFKI13w==/109951170947737840.jpg',
   },
 ];
 
@@ -84,14 +86,16 @@ export default function MusicSection() {
                   </span>
                 </div>
               </div>
-
+              
+              {/* 作品卡 */}
               <div className="space-y-6 flex flex-col md:flex-row gap-10">
                 {tracks.map((track, i) => (
                   <div
                     key={track.id}
-                    className="rounded-3xl border border-neutral-800 bg-black/40 p-5 transition duration-300 hover:border-neutral-500"
+                    className="flex flex-row md:flex-col lg:flex-row rounded-3xl border border-neutral-800 bg-neutral-950/40 p-5 gap-4 transition duration-300 hover:-translate-y-1 hover:border-neutral-500"
                   >
-                    <div className="mb-3">
+                    <img src={track.cover} className="w-30 h-30 object-cover"/>
+                    <div className="mb-3 relative ">
                       <p className="text-sm uppercase tracking-[0.2em] text-neutral-500">
                         Track {String(i + 1).padStart(2, "0")}
                       </p>
@@ -100,22 +104,21 @@ export default function MusicSection() {
                       <p className="mt-2 text-sm leading-6 text-neutral-400 max-w-md">
                         {track.note}
                       </p>
-                    </div>
+                      <button
+                        onClick={() =>
+                          window.open(`https://music.163.com/song?id=${track.id}`, "_blank")
+                        }
+                        className="group relative mt-3 overflow-hidden rounded-4xl px-4 py-1 border border-neutral-800 text-sm text-[#F7E7CE]"
+                      >
+                        {/* 背景渐变层 */}
+                        <span className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100 bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-blue-500/20 blur-md" />
 
-                    {/* <iframe
-                      className="w-full border-0 max-w-xl"
-                      src={`https://music.163.com/outchain/player?type=2&id=${track.id}&auto=0&height=66`}
-                      height="86"
-                      loading="eager"
-                      allow="autoplay; encrypted-media;"
-                    /> */}
-                    <a
-                        href={`https://music.163.com/song?id=${track.id}`}
-                        target="_blank"
-                        className="text-sm underline italic text-[#F7E7CE]"
-                        >
-                        Listen on NetEase
-                    </a>
+                        {/* 文字 */}
+                        <span className="relative transition-all duration-500 group-hover:tracking-widest group-hover:scale-105 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-300 group-hover:via-pink-300 group-hover:to-blue-300">
+                          Listen 🎧
+                        </span>
+                      </button>
+                    </div>
                   </div>
                 ))}
               </div>
