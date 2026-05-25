@@ -2,19 +2,24 @@
 // lib/tests.ts
 // =====================================================
 
-import { navItems } from "../data/navItems";
 import { featuredProjects } from "../data/projects";
 import { paintingItems, calligraphyItems, photographyItems } from "../data/gallery";
+import { siteSections } from "../data/sections";
 
 export function runSelfChecks() {
+  const navCardSections = siteSections.filter((section) => section.showInNavCards);
+  const navbarSections = siteSections.filter((section) => section.showInNavbar);
+
   const tests = [
     {
-      name: "nav items have non-empty href strings",
-      pass: navItems.every((item) => typeof item.href === "string" && item.href.trim().length > 0),
+      name: "section ids are unique",
+      pass: new Set(siteSections.map((section) => section.id)).size === siteSections.length,
     },
     {
-      name: "nav hrefs use hash links in this single-file preview",
-      pass: navItems.every((item) => item.href.startsWith("#")),
+      name: "nav cards have titles and descriptions",
+      pass: navCardSections.every(
+        (section) => section.navTitle?.trim().length && section.navDescription?.trim().length,
+      ),
     },
     {
       name: "featured projects contain title, description, and tech",
@@ -27,8 +32,8 @@ export function runSelfChecks() {
       pass: paintingItems.length > 0 && calligraphyItems.length > 0 && photographyItems.length > 0,
     },
     {
-      name: "nav titles are unique",
-      pass: new Set(navItems.map((item) => item.title)).size === navItems.length,
+      name: "navbar items have visible labels",
+      pass: navbarSections.every((section) => (section.navbarLabel ?? section.navTitle)?.trim().length),
     },
   ];
 
